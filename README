@@ -1,0 +1,4 @@
+This is a Simple Todo App made using Angular 1 where users can:
+* Create a Task.
+* Delete Existing Task.
+* Clear All Task.

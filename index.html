@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="Todo">
+  <head>
+    <meta charset="utf-8" >
+    <title>Angular 1 Todo App</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js">
+
+    </script>
+    <style media="screen">
+      html,body
+      {
+        overflow-x: hidden;
+      }
+      .done
+      {
+        text-decoration: line-through;
+      }
+      .trash
+      {
+        margin-top: -30px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Simple Todo App</a>
+      </div>
+
+    </div>
+  </nav>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 text-center" >
+      <div ng-controller="todoController">
+        <form class="form-inline" name="frm" ng-submit="AddTask()" role="form" method="post">
+          <div class="form-group" >
+            <!-- <label for="">Enter Task </label> -->
+            <input type="text"  id="task" ng-model="newtodo"  class="form-control" required>
+            <button type="submit" class="btn btn-primary" id="add" ng-class="{'disabled':frm.$invalid}">Add Task</button>
+          </div>
+
+        </form>
+        <div class="clearfix">
+          <br>
+          <div class="panel panel-default ">
+            <div class="panel-heading"><h4>Task List</h4>
+              <button type="button" class="btn btn-danger btn-xs pull-right trash" title="Clear All"  ng-click="ClearAll()" ><i class="glyphicon glyphicon-trash"></i></button></li>
+            </div>
+            <div class="panel-body text-left">
+              <ul>
+                <li ng-repeat="todo in todoList">
+                  <input type="checkbox" ng-model="todo.done" />
+                  <span ng-class="{'done text-muted':todo.done}">{{todo.title}}</span>
+                   <button type="button" class="btn btn-danger btn-xs "  ng-click="DeleteTask(todo)" ><i class="glyphicon glyphicon-trash"></i></button></li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  </body>
+<script type="text/javascript" src="app.js">
+
+</script>
+</html>
